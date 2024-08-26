@@ -2,7 +2,7 @@
 // @name         Latin2Cyrillic
 // @namespace    http://tampermonkey.net/
 // @version      2024-08-25
-// @description  Transliterate Latin letters to Cyrillic in chat input fields with a delay
+// @description  Transliterate Latin letters to Cyrillic in chat
 // @author       Solrikk
 // @match        http://*/*
 // @match        https://*/*
@@ -29,19 +29,33 @@
     function transliterate(text) {
         return text
             .replace(/Ya/g, 'Я')
+            .replace(/ya/g, 'я')
             .replace(/Yu/g, 'Ю')
+            .replace(/yu/g, 'ю')
             .replace(/Yo/g, 'Ё')
+            .replace(/yo/g, 'ё')
             .replace(/Ye/g, 'Е')
+            .replace(/ye/g, 'е')
             .replace(/Sh/g, 'Ш')
+            .replace(/sh/g, 'ш')
             .replace(/Ch/g, 'Ч')
+            .replace(/ch/g, 'ч')
             .replace(/Zh/g, 'Ж')
+            .replace(/zh/g, 'ж')
             .replace(/Ts/g, 'Ц')
+            .replace(/ts/g, 'ц')
             .replace(/Kh/g, 'Х')
+            .replace(/kh/g, 'х')
             .replace(/Khs/g, 'Кс')
+            .replace(/khs/g, 'кс')
             .replace(/Ja/g, 'Я')
+            .replace(/ja/g, 'я')
             .replace(/Je/g, 'Е')
+            .replace(/je/g, 'е')
             .replace(/Ju/g, 'Ю')
+            .replace(/ju/g, 'ю')
             .replace(/Jo/g, 'Ё')
+            .replace(/jo/g, 'ё')
             .replace(/[A-Za-z]/g, function(char) {
                 return latinToCyrillicMap[char] || char;
             });
